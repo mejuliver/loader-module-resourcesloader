@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>How to Use</title>
+</head>
+<body>
+	<h3>Load css</h3>
+	<pre>
+		$loader-&gt;load('resourcesloader')-&gt;loadcss(&lt;directory, with defaults&gt;,&lt;url, default false&gt;);
+	</pre>
+	<p>
+		<strong>css directory (dir)</strong> - default folder "css", default async folder "async/css". You can specify your own directory e.g. "assets/css" or custom directories for css and asynchronous css e.g.
+	</p>
+	<pre>
+		$dir = [
+			'css' => 'assets/css',
+			'async' => 'assets/css/async'
+		];
+
+		$loader-&gt;load('resourcesloader')-&gt;loadcss($dir);
+	</pre>
+	<p>
+		<strong>url</strong> - if no url provided then the url from the module config will be use instead, this will define the url location of your assets;
+	</p>
+	<p>
+		either one of the set up exist in array or not found, default directories defined on the module config will be use instead.
+	</p>
+	<br>
+	<h3>Load Js</h3>
+	<pre>
+		$loader-&gt;load('resourcesloader')-&gt;loadjs(&lt;directory, with defaults&gt;,&lt;url, default false&gt;,&lt;config, default []&gt;);
+	</pre>
+	<p>
+		<strong>js directory (dir)</strong> - default folder "js", default async folder "async/js". You can specify your own directory e.g. "assets/js" or custom directories for js and asynchronous js e.g.
+	</p>
+	<pre>
+		$dir = [
+			'js' => 'assets/js',
+			'async' => 'assets/js/async'
+		];
+		$loader-&gt;load('resourcesloader')-&gt;loadjs($dir);
+	</pre>
+	<p>
+		<strong>url</strong> - if no url provided then the url from the module config will be use instead, this will define the url location of your assets;
+	</p>
+	<p>	
+		<strong>config array</strong> - this where you can define your custom asynchrounous javacript files and parallel loading e.g.
+	</p>
+	<pre>
+		$config = [
+			'https://mywebsite.com/assets/js/custom/main.js', // loaded async
+			[
+				'parent' => 'https://jquery.com/api/cdn/jquery.min.js', // parent script
+				'src' => [						     // you can provide an array of dependencies or string dependency url
+					'https://mywebsite.com/assets/js/custom/jquery1.js', // dependecy
+					'https://mywebsite.com/assets/js/custom/jquery2.js', // dependecy
+					'https://mywebsite.com/assets/js/custom/jquery3.js', // dependecy
+				];
+			]
+		];
+	</pre>
+
+
+</body>
+</html>
